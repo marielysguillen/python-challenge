@@ -1,6 +1,5 @@
 import os
 import csv
-#import statistics
 
 budget_data_csv = os.path.join("Resources", "budget_data.csv") #find csv file 
 
