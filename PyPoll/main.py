@@ -11,11 +11,8 @@ election_data_csv = os.path.join("Resources", "election_data.csv") #find csv fil
 total_votes_cast = 0
 w = 0
 winner_election = ""
-# percent_str = ""
-
 
 # Lists/Dictionaries to store data
-# total_votes_list = []
 candidate_list = []
 candidate_votes_dict = {}
 candidate_percent_dict = {}
@@ -62,7 +59,6 @@ for key, item in candidate_votes_dict.items():
     votes = candidate_votes_dict[c_name]
     # Determine pocent to 3 decimal places
     percent = round((int(item)/ total_votes_cast * 100),3)
-    # percant_str = str(percent) + "%"
     candidate_percent_dict[key] = percent
 
     #Set winner by comparing the number of votes for each candidate
@@ -74,6 +70,8 @@ for key, item in candidate_votes_dict.items():
 # Output
 #---------------------------------------------
 print("Election Results")
+print("-------------------------")
+print("Total Votes:" + "" + str(total_votes_cast))
 print("-------------------------")
 
 #Zip all two dictionary together and iterate over votes and percent dictionaries at once 
@@ -93,6 +91,8 @@ with open(pyPoll_analysis,"w") as file:
 
     file.write("Election Results")
     file.write("\n" + '-------------------------' + '\n')
+    file.write("Total Votes:" + "" + str(total_votes_cast) + '\n')
+    file.write('-------------------------' + '\n')
 
     #Zip all two dictionary together and iterate over votes and percent dictionaries at once 
     for (key1,item1), (key2,item2) in zip(candidate_votes_dict.items(), candidate_percent_dict.items()):
